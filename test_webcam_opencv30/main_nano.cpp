@@ -1,7 +1,6 @@
 #include "opencv2/opencv.hpp"
 #include "mylib.h"
 
-
 using namespace cv;
 
 std::string gstreamer_pipeline (int capture_width, int capture_height, int display_width, int display_height, int framerate, int flip_method) {

@@ -25,7 +25,6 @@ out2.at<uchar>(i,j)=(uchar)abs(temp);//on prend que les valeur postives
 return(out2);
 
 }
-
 ///////////////////////////////////////////seuillage du rouge au vert///////////////////////////////////
 Mat seuillageRtoV (Mat frame){
 float nr;
