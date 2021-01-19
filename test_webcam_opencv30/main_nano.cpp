@@ -1,4 +1,5 @@
 #include "opencv2/opencv.hpp"
+#include "mylib.h"
 
 
 using namespace cv;
@@ -34,26 +35,131 @@ cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
 	//VideoCapture cap(); // open the default camera
 	if(!cap.isOpened())  // check if we succeeded
 		return -1;
+	
+ 
 
 
 
 	while(1){
-
-	    Mat frame;
+		Mat frame, out;
 	    // Capture frame-by-frame
-	    cap >> frame;
+	   char c=(char)waitKey(25);
+	   
+		if (c=='1'){
+		while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = seuillageRtoV(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+		}
+}
 
-	    // If the frame is empty, break immediately
-	    if (frame.empty())
-	      break;
+if (c=='5'){
+		while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = mirroir(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+		}
+}
 
-	    // Display the resulting frame
-	    imshow( "Frame", frame );
+if (c=='2'){
+		while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = seuillageBtoM(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+		}
+}
+		if(c=='4')
+{
+while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = NBfilter(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+}
+}
+if(c=='6')
+{
+while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = gausien(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+}
+}
 
-	    // Press  ESC on keyboard to exit
-	    char c=(char)waitKey(25);
-	    if(c==27)
-	      break;
+
+
+
+
+
+			if(c=='3')
+{
+while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = contours(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+}
+}
+
+
+
+		
+else {
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			imshow("Frame", frame );
+			
+			
+    }			               
+
+
+
+
+
+
+
+
+
+
+
+
+	     
+
 	  }
 
 	  // When everything done, release the video capture object
