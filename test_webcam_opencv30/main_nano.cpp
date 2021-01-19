@@ -43,7 +43,7 @@ cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
 		Mat frame, out;
 	    // Capture frame-by-frame
 	   char c=(char)waitKey(25);
-	   
+	   ///////touche 1 fait le seuillage rouge ver vert////
 		if (c=='1'){
 		while (1){
 			cap >> frame;
@@ -58,20 +58,7 @@ cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
 		}
 }
 
-if (c=='5'){
-		while (1){
-			cap >> frame;
-			if (frame.empty())
-	                break;
-			
-			out = mirroir(frame);
-			imshow( "Frame", out );
-			 c=(char)waitKey(25);
-			 if(c==27)
-	      		break;
-		}
-}
-
+///////touche 2 fait le seuillage bleu vers magenta////
 if (c=='2'){
 		while (1){
 			cap >> frame;
@@ -85,6 +72,7 @@ if (c=='2'){
 	      		break;
 		}
 }
+///////touche 4 rend image noir et blanc////
 		if(c=='4')
 {
 while (1){
@@ -99,6 +87,7 @@ while (1){
 	      		break;
 }
 }
+///////touche 6 fait filtre gaussien////
 if(c=='6')
 {
 while (1){
@@ -113,11 +102,24 @@ while (1){
 	      		break;
 }
 }
+if (c=='5'){
+		while (1){
+			cap >> frame;
+			if (frame.empty())
+	                break;
+			
+			out = mirroir(frame);
+			imshow( "Frame", out );
+			 c=(char)waitKey(25);
+			 if(c==27)
+	      		break;
+		}
+}
 
 
 
 
-
+////////////////////////touche 3 fait la détection de contours///////
 
 			if(c=='3')
 {
@@ -135,7 +137,7 @@ while (1){
 }
 
 
-
+/////////////affiche l'image sans modif si aucun touche n'est appuyé////////////
 		
 else {
 			cap >> frame;

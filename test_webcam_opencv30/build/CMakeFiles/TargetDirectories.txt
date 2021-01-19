@@ -1,0 +1,3 @@
+/home/utilisateur/parsec-code-parsec-01/test_webcam_opencv30/build/CMakeFiles/rebuild_cache.dir
+/home/utilisateur/parsec-code-parsec-01/test_webcam_opencv30/build/CMakeFiles/camera_test.dir
+/home/utilisateur/parsec-code-parsec-01/test_webcam_opencv30/build/CMakeFiles/edit_cache.dir

@@ -5,7 +5,7 @@ Mat contours (Mat frame) {
 Mat out2,in_gray;
 	    // Capture frame-by-frame
 	cvtColor(frame,in_gray,CV_BGR2GRAY);///convertir l'image de base en couleur en noir et blanc
-	out2.create(frame.rows,frame.cols,CV_8UC1);
+	out2.create(frame.rows,frame.cols,CV_8UC1);// creer une image sorti de l'image de base de la colonne et
 
 		for (int i=1;i<frame.rows;i++){
 			for (int j=1;j<frame.cols;j++){
@@ -14,8 +14,8 @@ short temp;
 
 out2.at<uchar>(i,j)=(uchar)abs(temp);//on prend que les valeur postives
 
-		if(out2.at<uchar>(i,j)>23) out2.at<uchar>(i,j)=255; /// faire un intervalle entre les valeurs
-		else { out2.at<uchar>(i,j)=0;
+		if(out2.at<uchar>(i,j)>23) out2.at<uchar>(i,j)=255; // si la ij est au dessus de 23 alors blanc ou 255
+		else { out2.at<uchar>(i,j)=0;//sinon noir 
 			}
 
 			}
@@ -119,7 +119,6 @@ Mat out2,in_gray;
 return(out2);
 
 }
-/////////////////////////////////miroir//////////////////////////////////
 Mat mirroir(Mat frame)
 {
 
